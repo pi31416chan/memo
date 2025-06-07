@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.10.0)
+project(
+    memo
+    VERSION 0.1.0
+    LANGUAGES C CXX
+)
+
+set(CXX_STANDARD 17)
+set(CXX_STANDARD_REQUIRED True)
+
+add_executable(
+    memo
+    main.cpp
+)
+
+target_include_directories(
+    memo
+    PUBLIC src
+)
