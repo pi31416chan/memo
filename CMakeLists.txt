@@ -11,6 +11,7 @@ set(CXX_STANDARD_REQUIRED True)
 add_executable(
     memo
     main.cpp
+    src/memo.cpp
 )
 
 target_include_directories(
