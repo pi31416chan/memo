@@ -15,6 +15,7 @@ CTestTestfile.cmake
 _deps
 
 ### CMake Patch ###
+CMakePresets.json
 CMakeUserPresets.json
 
 # External projects
