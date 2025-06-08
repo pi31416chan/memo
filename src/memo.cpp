@@ -104,3 +104,27 @@ void Memo::save()
 
     cout << "Memo saved successfully!" << endl;
 }
+
+void Memo::load()
+{
+    _memoJson.clear();
+
+    int fileSize = fs::file_size(MEMO_DATAFILE);
+    ifstream ifile(MEMO_DATAFILE);
+    char jsonContent[fileSize];
+
+    ifile.getline(jsonContent, fileSize + 1);
+    _memoJson = json::parse(string(jsonContent));
+    loadProperties(_memoJson);
+
+    cout << "Memo loaded successfully!" << endl;
+}
+
+void Memo::loadProperties(json jsonData)
+{
+    lastUpdated = jsonData["lastUpdated"];
+    for (size_t i = 0; i < jsonData["messageList"].size(); i++)
+    {
+        messageList.push_back(Message(jsonData["messageList"][i]));
+    }
+}

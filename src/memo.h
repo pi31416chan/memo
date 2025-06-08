@@ -39,6 +39,8 @@ namespace memo
         void deleteMessage(int index);
         void listAll();
         void save();
+        void load();
+        void loadProperties(json jsonData);
     };
 }
 
