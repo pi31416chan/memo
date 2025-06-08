@@ -6,16 +6,24 @@ using Memo = memo::Memo;
 Memo::Memo()
 {
     createMemoHome();
-    util::updateTimeStampNow(&lastUpdated);
+
+    if (!fs::exists(MEMO_DATAFILE) || fs::is_empty(MEMO_DATAFILE))
+    {
+        util::updateTimeStampNow(&lastUpdated);
+    }
+    else
+    {
+        load();
+    }
 }
 
 // Private Methods
 void Memo::updateJsonData()
 {
     json messageListJson = {};
-    for (int i = 0; i < messageList.size(); i++)
+    for (int i = 0; i < _messageList.size(); i++)
     {
-        messageListJson.push_back(messageList[i].toJson());
+        messageListJson.push_back(_messageList[i].toJson());
     }
 
     _memoJson = {
@@ -46,7 +54,7 @@ void Memo::createMessage(string title)
 void Memo::createMessage(string title, string message)
 {
     Message newMessage{title, message};
-    messageList.push_back(newMessage);
+    _messageList.push_back(newMessage);
     cout << "New message created: " << newMessage.title << endl;
 
     util::updateTimeStampNow(&lastUpdated);
@@ -54,9 +62,9 @@ void Memo::createMessage(string title, string message)
 
 void Memo::showMessage(int index)
 {
-    if (index > 0 && index <= messageList.size())
+    if (index > 0 && index <= _messageList.size())
     {
-        messageList[index - 1].show();
+        _messageList[index - 1].show();
     }
     else
     {
@@ -67,13 +75,13 @@ void Memo::showMessage(int index)
 void Memo::deleteMessage(int index)
 {
     string ans;
-    messageList[index - 1].show();
+    _messageList[index - 1].show();
     cout << "Delete message " << index << " from memo? (y/N)" << endl;
     cin >> ans;
 
     if (tolower(ans[0]) == 'y')
     {
-        messageList.erase(messageList.begin() + index - 1);
+        _messageList.erase(_messageList.begin() + index - 1);
         cout << "Message " << index << " deleted from memo" << endl;
     }
     else
@@ -88,9 +96,9 @@ void Memo::listAll()
 {
     cout << "Memo list:" << endl;
     cout << "Index   Title" << endl;
-    for (int i = 0; i < messageList.size(); i++)
+    for (int i = 0; i < _messageList.size(); i++)
     {
-        cout << i + 1 << "       " << messageList[i].title << endl;
+        cout << i + 1 << "       " << _messageList[i].title << endl;
     }
 }
 
@@ -125,6 +133,6 @@ void Memo::loadProperties(json jsonData)
     lastUpdated = jsonData["lastUpdated"];
     for (size_t i = 0; i < jsonData["messageList"].size(); i++)
     {
-        messageList.push_back(Message(jsonData["messageList"][i]));
+        _messageList.push_back(Message(jsonData["messageList"][i]));
     }
 }

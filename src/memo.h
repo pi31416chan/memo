@@ -22,7 +22,7 @@ namespace memo
     {
     private:
         json _memoJson;
-        vector<Message> messageList;
+        vector<Message> _messageList;
 
         void updateJsonData();
         void createMemoHome();
