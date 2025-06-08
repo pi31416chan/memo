@@ -41,3 +41,8 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" AND EXISTS "${PROJECT_SOURCE_DIR}/junk_.cpp
         PUBLIC src
     )
 endif()
+
+install(
+    TARGETS memo
+    DESTINATION bin
+)
