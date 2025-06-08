@@ -27,10 +27,11 @@ namespace memo
 
         Memo();
 
-        void displayLastUpdated();
+        string strLastUpdated();
         void createMessage(string title, string message);
         void showMessage(int index);
         void deleteMessage(int index);
+        void listAll();
     };
 }
 

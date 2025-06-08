@@ -15,9 +15,18 @@ Message::Message(string title, string body)
 // Private Methods
 
 // Public Methods
-void Message::displayLastUpdated()
+string Message::strCreated()
 {
-    cout << ctime(&lastUpdated);
+    string t = ctime(&created);
+
+    return util::strip(t);
+}
+
+string Message::strLastUpdated()
+{
+    string t = ctime(&lastUpdated);
+
+    return util::strip(t);
 }
 
 json Message::toJson()
@@ -35,6 +44,8 @@ json Message::toJson()
 void Message::show()
 {
     cout << "Title: " << title << endl;
+    cout << "Created: " << strCreated() << endl;
+    cout << "Updated: " << strLastUpdated() << endl;
     cout << "Body:" << endl;
     cout << "    " << body << endl;
 }

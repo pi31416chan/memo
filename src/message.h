@@ -22,7 +22,8 @@ namespace memo
 
         Message(string title, string body);
 
-        void displayLastUpdated();
+        string strCreated();
+        string strLastUpdated();
         json toJson();
         void show();
     };
