@@ -1,8 +1,13 @@
+#ifndef MEMO_H
+#define MEMO_H
+
 #include "message.h"
 #include <ctime>
 #include <iostream>
 #include <nlohmann/json.hpp>
 #include <string>
+
+using json = nlohmann::json;
 
 namespace memo
 {
@@ -24,3 +29,5 @@ namespace memo
         void createMessage(string title, string message);
     };
 }
+
+#endif // MEMO_H

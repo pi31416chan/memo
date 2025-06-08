@@ -3,7 +3,10 @@
 
 #include <ctime>
 #include <iostream>
+#include <nlohmann/json.hpp>
 #include <string>
+
+using json = nlohmann::json;
 
 using namespace std;
 
@@ -17,6 +20,7 @@ namespace memo
         time_t lastUpdated;
 
         void displayLastUpdated();
+        json toJson();
     };
 }
 

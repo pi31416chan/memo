@@ -8,3 +8,14 @@ void Message::displayLastUpdated()
 {
     cout << ctime(&lastUpdated);
 }
+
+json Message::toJson()
+{
+    json j = {
+        {"title", title},
+        {"body", body},
+        {"lastUpdated", (int)lastUpdated},
+    };
+
+    return j;
+}
