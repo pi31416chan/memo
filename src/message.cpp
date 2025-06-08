@@ -3,6 +3,15 @@
 using Message = memo::Message;
 
 // Constructor
+Message::Message(string title)
+{
+    this->title = title;
+    this->body = "";
+
+    util::updateTimeStampNow(&this->created);
+    util::updateTimeStampNow(&this->lastUpdated);
+}
+
 Message::Message(string title, string body)
 {
     this->title = title;
@@ -47,5 +56,12 @@ void Message::show()
     cout << "Created: " << strCreated() << endl;
     cout << "Updated: " << strLastUpdated() << endl;
     cout << "Body:" << endl;
-    cout << "    " << body << endl;
+    if (body.empty())
+    {
+        cout << "    " << "NA" << endl;
+    }
+    else
+    {
+        cout << "    " << body << endl;
+    }
 }

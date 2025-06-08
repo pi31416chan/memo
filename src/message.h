@@ -20,6 +20,7 @@ namespace memo
         time_t created;
         time_t lastUpdated;
 
+        Message(string title);
         Message(string title, string body);
 
         string strCreated();

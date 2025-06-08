@@ -28,6 +28,7 @@ namespace memo
         Memo();
 
         string strLastUpdated();
+        void createMessage(string title);
         void createMessage(string title, string message);
         void showMessage(int index);
         void deleteMessage(int index);

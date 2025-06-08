@@ -31,6 +31,13 @@ string Memo::strLastUpdated()
     return util::strip(t);
 }
 
+void Memo::createMessage(string title)
+{
+    Message newMessage{title};
+    messageList.push_back(newMessage);
+    cout << "New message created: " << newMessage.title << endl;
+}
+
 void Memo::createMessage(string title, string message)
 {
     Message newMessage{title, message};
