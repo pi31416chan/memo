@@ -1,13 +1,18 @@
 #include <ctime>
-
-using namespace std;
+#include <iostream>
+#include <nlohmann/json.hpp>
+#include <string>
 
 namespace memo
 {
     class Memo
     {
     private:
+        json _memoJson;
         time_t _lastUpdated;
+
+        void updateLastUpdated();
+        void updateJsonData();
 
     public:
         Memo()
@@ -17,7 +22,6 @@ namespace memo
 
         time_t lastUpdated();
 
-        void updateLastUpdated();
         void displayLastUpdated();
     };
 }
