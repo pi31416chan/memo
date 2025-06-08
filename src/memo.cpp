@@ -1,23 +1,14 @@
 #include "memo.h"
 
-using namespace std;
-using json = nlohmann::json;
 using Memo = memo::Memo;
-using Message = memo::Message;
 
 // Constructor
 Memo::Memo()
 {
-    updateLastUpdated();
+    util::updateTimeStampNow(&lastUpdated);
 }
 
 // Private Methods
-void Memo::updateLastUpdated()
-{
-    time_t now;
-    lastUpdated = time(&now);
-}
-
 void Memo::updateJsonData()
 {
     json messageListJson = {};

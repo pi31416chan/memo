@@ -2,12 +2,15 @@
 #define MEMO_H
 
 #include "message.h"
+#include "util.h"
 #include <ctime>
 #include <iostream>
 #include <nlohmann/json.hpp>
 #include <string>
 
+using namespace std;
 using json = nlohmann::json;
+using Message = memo::Message;
 
 namespace memo
 {
@@ -17,7 +20,6 @@ namespace memo
         json _memoJson;
         vector<Message> messageList;
 
-        void updateLastUpdated();
         void updateJsonData();
 
     public:

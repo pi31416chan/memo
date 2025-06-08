@@ -1,23 +1,19 @@
 #ifndef MESSAGE_H
 #define MESSAGE_H
 
+#include "util.h"
 #include <ctime>
 #include <iostream>
 #include <nlohmann/json.hpp>
 #include <string>
 
-using json = nlohmann::json;
-
 using namespace std;
+using json = nlohmann::json;
 
 namespace memo
 {
     class Message
     {
-    private:
-        void updateLastUpdated();
-        void updateCreated();
-
     public:
         string title;
         string body;
