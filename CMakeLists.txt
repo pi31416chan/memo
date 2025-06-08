@@ -24,3 +24,18 @@ target_include_directories(
     memo
     PUBLIC src
 )
+
+# Build junk_.cpp for development testing if CMAKE_BUILD_TYPE == "Debug"
+if(CMAKE_BUILD_TYPE STREQUAL "Debug" AND EXISTS "${PROJECT_SOURCE_DIR}/junk_.cpp")
+    add_executable(
+        junk junk_.cpp
+    )
+    target_link_libraries(
+        junk
+        PRIVATE nlohmann_json::nlohmann_json
+    )
+    target_include_directories(
+        junk
+        PUBLIC src
+    )
+endif()
