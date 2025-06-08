@@ -74,7 +74,16 @@
 			"ios": "cpp",
 			"locale": "cpp",
 			"queue": "cpp",
-			"stack": "cpp"
+			"stack": "cpp",
+			"any": "cpp",
+			"codecvt": "cpp",
+			"forward_list": "cpp",
+			"map": "cpp",
+			"iomanip": "cpp",
+			"numeric": "cpp",
+			"ranges": "cpp",
+			"valarray": "cpp",
+			"fstream": "cpp"
 		}
 	}
 }
