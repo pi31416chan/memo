@@ -5,11 +5,7 @@ using Message = memo::Message;
 // Constructor
 Message::Message(string title)
 {
-    this->title = title;
-    this->body = "";
-
-    util::updateTimeStampNow(&this->created);
-    util::updateTimeStampNow(&this->lastUpdated);
+    Message(title, "");
 }
 
 Message::Message(string title, string body)

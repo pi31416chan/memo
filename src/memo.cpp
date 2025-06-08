@@ -40,8 +40,7 @@ string Memo::strLastUpdated()
 void Memo::createMessage(string title)
 {
     Message newMessage{title};
-    messageList.push_back(newMessage);
-    cout << "New message created: " << newMessage.title << endl;
+    createMessage(title, "");
 }
 
 void Memo::createMessage(string title, string message)
@@ -49,6 +48,8 @@ void Memo::createMessage(string title, string message)
     Message newMessage{title, message};
     messageList.push_back(newMessage);
     cout << "New message created: " << newMessage.title << endl;
+
+    util::updateTimeStampNow(&lastUpdated);
 }
 
 void Memo::showMessage(int index)
@@ -79,6 +80,8 @@ void Memo::deleteMessage(int index)
     {
         cout << "Not deleting" << endl;
     }
+
+    util::updateTimeStampNow(&lastUpdated);
 }
 
 void Memo::listAll()
