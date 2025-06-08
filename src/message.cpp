@@ -17,6 +17,15 @@ Message::Message(string title, string body)
     util::updateTimeStampNow(&this->lastUpdated);
 }
 
+Message::Message(json messageJson)
+{
+
+    this->title = messageJson["title"];
+    this->body = messageJson["body"];
+    this->created = messageJson["created"];
+    this->lastUpdated = messageJson["lastUpdated"];
+}
+
 // Private Methods
 
 // Public Methods
