@@ -60,13 +60,14 @@ void Memo::showMessage(int index)
 void Memo::deleteMessage(int index)
 {
     string ans;
-    cout << "Delete message " << index << " from memo?" << endl;
-    cout << "Preview: " << messageList[index - 1].title << " (y/N)" << endl;
+    messageList[index - 1].show();
+    cout << "Delete message " << index << " from memo? (y/N)" << endl;
     cin >> ans;
 
     if (tolower(ans[0]) == 'y')
     {
         messageList.erase(messageList.begin() + index - 1);
+        cout << "Message " << index << " deleted from memo" << endl;
     }
     else
     {
