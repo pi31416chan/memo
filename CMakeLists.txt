@@ -15,6 +15,7 @@ add_executable(
     memo
     main.cpp
     src/memo.cpp
+    src/message.cpp
 )
 target_link_libraries(
     memo
