@@ -9,6 +9,8 @@ project(
 set(CXX_STANDARD 17)
 set(CXX_STANDARD_REQUIRED True)
 
+configure_file(src/constant.h.in src/constant.h)
+
 find_package(nlohmann_json REQUIRED)
 
 add_executable(
@@ -25,6 +27,7 @@ target_link_libraries(
 target_include_directories(
     memo
     PUBLIC src
+    PUBLIC build/src
 )
 
 # Build junk_.cpp for development testing if CMAKE_BUILD_TYPE == "Debug"
