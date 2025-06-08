@@ -9,7 +9,6 @@ namespace memo
     {
     private:
         json _memoJson;
-        time_t _lastUpdated;
 
         void updateLastUpdated();
         void updateJsonData();
@@ -20,7 +19,7 @@ namespace memo
             updateLastUpdated();
         }
 
-        time_t lastUpdated();
+        time_t lastUpdated;
 
         void displayLastUpdated();
     };

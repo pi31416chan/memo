@@ -8,23 +8,23 @@ using Memo = memo::Memo;
 void Memo::updateLastUpdated()
 {
     time_t now;
-    _lastUpdated = time(&now);
+    lastUpdated = time(&now);
 }
 
 void Memo::updateJsonData()
 {
     _memoJson = {
-        {"_lastUpdated", (int)_lastUpdated},
+        {"lastUpdated", (int)lastUpdated},
     };
 }
 
 // Public Methods
-time_t Memo::lastUpdated()
-{
-    return _lastUpdated;
-}
-
 void Memo::displayLastUpdated()
 {
-    cout << ctime(&_lastUpdated);
+    cout << ctime(&lastUpdated);
+}
+
+void createMessage(string message)
+{
+    // createMessage
 }
