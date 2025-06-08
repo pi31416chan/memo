@@ -54,7 +54,7 @@ void Memo::deleteMessage(int index)
 {
     string ans;
     cout << "Delete message " << index << " from memo?" << endl;
-    cout << "Preview: " << messageList[index - 1].title << "(y/N)" << endl;
+    cout << "Preview: " << messageList[index - 1].title << " (y/N)" << endl;
     cin >> ans;
 
     if (tolower(ans[0]) == 'y')
