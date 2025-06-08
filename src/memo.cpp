@@ -94,11 +94,18 @@ void Memo::deleteMessage(int index)
 
 void Memo::listAll()
 {
-    cout << "Memo list:" << endl;
-    cout << "Index   Title" << endl;
-    for (int i = 0; i < _messageList.size(); i++)
+    if (_messageList.size() <= 0)
     {
-        cout << i + 1 << "       " << _messageList[i].title << endl;
+        cout << "No message in memo!" << endl;
+    }
+    else
+    {
+        cout << "Memo list:" << endl;
+        cout << "Index   Title" << endl;
+        for (int i = 0; i < _messageList.size(); i++)
+        {
+            cout << i + 1 << "       " << _messageList[i].title << endl;
+        }
     }
 }
 
