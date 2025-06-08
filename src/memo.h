@@ -1,13 +1,17 @@
 #ifndef MEMO_H
 #define MEMO_H
 
+#include "constant.h"
 #include "message.h"
 #include "util.h"
 #include <ctime>
+#include <filesystem>
+#include <fstream>
 #include <iostream>
 #include <nlohmann/json.hpp>
 #include <string>
 
+namespace fs = std::filesystem;
 using namespace std;
 using json = nlohmann::json;
 using Message = memo::Message;
@@ -21,6 +25,7 @@ namespace memo
         vector<Message> messageList;
 
         void updateJsonData();
+        void createMemoHome();
 
     public:
         time_t lastUpdated;
@@ -33,6 +38,7 @@ namespace memo
         void showMessage(int index);
         void deleteMessage(int index);
         void listAll();
+        void save();
     };
 }
 

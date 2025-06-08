@@ -5,6 +5,7 @@ using Memo = memo::Memo;
 // Constructor
 Memo::Memo()
 {
+    createMemoHome();
     util::updateTimeStampNow(&lastUpdated);
 }
 
@@ -21,6 +22,11 @@ void Memo::updateJsonData()
         {"lastUpdated", (int)lastUpdated},
         {"messageList", messageListJson},
     };
+}
+
+void Memo::createMemoHome()
+{
+    fs::create_directories(MEMO_HOME);
 }
 
 // Public Methods
@@ -83,4 +89,15 @@ void Memo::listAll()
     {
         cout << i + 1 << "       " << messageList[i].title << endl;
     }
+}
+
+void Memo::save()
+{
+    updateJsonData();
+
+    ofstream ofile(MEMO_DATAFILE);
+    ofile << _memoJson.dump();
+    ofile.close();
+
+    cout << "Memo saved successfully!" << endl;
 }
