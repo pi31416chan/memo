@@ -24,6 +24,7 @@ namespace memo
 
         void displayLastUpdated();
         json toJson();
+        void show();
     };
 }
 

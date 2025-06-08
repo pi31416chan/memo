@@ -36,6 +36,18 @@ void Memo::createMessage(string title, string message)
     cout << "New message created: " << newMessage.title << endl;
 }
 
+void Memo::showMessage(int index)
+{
+    if (index > 0 && index <= messageList.size())
+    {
+        messageList[index - 1].show();
+    }
+    else
+    {
+        cout << "Message " << index << " not available!" << endl;
+    }
+}
+
 void Memo::deleteMessage(int index)
 {
     string ans;

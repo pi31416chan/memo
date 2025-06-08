@@ -31,3 +31,10 @@ json Message::toJson()
 
     return j;
 }
+
+void Message::show()
+{
+    cout << "Title: " << title << endl;
+    cout << "Body:" << endl;
+    cout << "    " << body << endl;
+}
