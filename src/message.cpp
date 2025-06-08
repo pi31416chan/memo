@@ -67,6 +67,14 @@ void Message::show()
     }
     else
     {
-        cout << "    " << body << endl;
+        string line;
+        istringstream iss(body);
+
+        do
+        {
+            getline(iss, line);
+            if (!iss.eof())
+                cout << "    " << line << endl;
+        } while (!iss.eof() && !line.empty());
     }
 }

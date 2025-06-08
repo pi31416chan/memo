@@ -11,6 +11,9 @@ namespace memo::util
 {
     string strip(string str);
     void updateTimeStampNow(time_t *timestamp);
+
+    // Validation Functions
+    int validateNumber(string str, string errMsg);
 }
 
 #endif // UTIL_H

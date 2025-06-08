@@ -43,3 +43,22 @@ string util::strip(string str)
 
     return stripped;
 }
+
+int util::validateNumber(string str, string errMsg = "")
+{
+    int index;
+
+    try
+    {
+        index = stoi(str);
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << "Error: " << str << " is not a number!" << endl;
+        if (!errMsg.empty())
+            std::cerr << "Error: " << errMsg << endl;
+        exit(1);
+    }
+
+    return index;
+}

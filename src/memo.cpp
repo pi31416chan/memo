@@ -117,7 +117,7 @@ void Memo::save()
     ofile << _memoJson.dump();
     ofile.close();
 
-    cout << "Memo saved successfully!" << endl;
+    // cout << "Memo saved successfully!" << endl;
 }
 
 void Memo::load()
@@ -132,7 +132,7 @@ void Memo::load()
     _memoJson = json::parse(string(jsonContent));
     loadProperties(_memoJson);
 
-    cout << "Memo loaded successfully!" << endl;
+    // cout << "Memo loaded successfully!" << endl;
 }
 
 void Memo::loadProperties(json jsonData)
