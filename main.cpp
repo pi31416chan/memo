@@ -14,7 +14,6 @@ int main(int argc, char const *argv[])
 
     if (argc == 1)
     {
-        // Show Help
         cout << HELP_MESSAGE;
         return 0;
     }
@@ -49,7 +48,7 @@ int main(int argc, char const *argv[])
     }
     else if (command == "clear" && argc == 2)
     {
-        // Clear
+        m.clearAll();
     }
     else if (command == "create" && argc == 2)
     {

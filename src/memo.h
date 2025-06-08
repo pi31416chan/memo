@@ -38,6 +38,7 @@ namespace memo
         void showMessage(int index);
         void deleteMessage(int index);
         void listAll();
+        void clearAll();
         void save();
         void load();
         void loadProperties(json jsonData);

@@ -76,7 +76,7 @@ void Memo::deleteMessage(int index)
 {
     string ans;
     _messageList[index - 1].show();
-    cout << "Delete message " << index << " from memo? (y/N)" << endl;
+    cout << "\033[0;94mDelete message " << index << " from memo? (y/N)\033[0m" << endl;
     cin >> ans;
 
     if (tolower(ans[0]) == 'y')
@@ -86,7 +86,7 @@ void Memo::deleteMessage(int index)
     }
     else
     {
-        cout << "Not deleting" << endl;
+        cout << "Aborted" << endl;
     }
 
     util::updateTimeStampNow(&lastUpdated);
@@ -106,6 +106,29 @@ void Memo::listAll()
         {
             cout << i + 1 << "       " << _messageList[i].title << endl;
         }
+    }
+}
+
+void Memo::clearAll()
+{
+    string ans;
+    listAll();
+    cout << "\033[0;94mDelete all message from memo?\033[0m" << endl;
+    cout << "\033[1;91mWARNING: This action is irreversible? (y/N)\033[0m" << endl;
+    cin >> ans;
+
+    if (tolower(ans[0]) == 'y')
+    {
+        _memoJson.clear();
+        _messageList = {};
+        lastUpdated = 0;
+
+        fs::remove(MEMO_DATAFILE);
+        cout << "Memo is cleared" << endl;
+    }
+    else
+    {
+        cout << "Aborted" << endl;
     }
 }
 
