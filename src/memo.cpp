@@ -4,6 +4,12 @@ using namespace std;
 using json = nlohmann::json;
 using Memo = memo::Memo;
 
+// Constructor
+Memo::Memo()
+{
+    updateLastUpdated();
+}
+
 // Private Methods
 void Memo::updateLastUpdated()
 {

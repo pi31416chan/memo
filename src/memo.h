@@ -1,3 +1,4 @@
+#include "message.h"
 #include <ctime>
 #include <iostream>
 #include <nlohmann/json.hpp>
@@ -9,18 +10,17 @@ namespace memo
     {
     private:
         json _memoJson;
+        vector<Message> messageList;
 
         void updateLastUpdated();
         void updateJsonData();
 
     public:
-        Memo()
-        {
-            updateLastUpdated();
-        }
-
         time_t lastUpdated;
 
+        Memo();
+
         void displayLastUpdated();
+        void createMessage(string title, string message);
     };
 }
