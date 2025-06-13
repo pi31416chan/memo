@@ -149,10 +149,10 @@ void Memo::load()
 
     int fileSize = fs::file_size(MEMO_DATAFILE);
     ifstream ifile(MEMO_DATAFILE);
-    char jsonContent[fileSize];
+    string jsonContent;
 
-    ifile.getline(jsonContent, fileSize + 1);
-    _memoJson = json::parse(string(jsonContent));
+    getline(ifile, jsonContent);
+    _memoJson = json::parse(jsonContent);
     loadProperties(_memoJson);
 
     // cout << "Memo loaded successfully!" << endl;
